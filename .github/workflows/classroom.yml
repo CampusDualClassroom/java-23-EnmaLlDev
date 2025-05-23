@@ -13,17 +13,17 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-    - name: Exercise23
-      id: exercise23
+    - name: Exercise-23
+      id: exercise-23
       uses: classroom-resources/autograding-command-grader@v1
       with:
-        test-name: Exercise23
+        test-name: Exercise-23
         setup-command: mvn compile
         command: mvn test
         timeout: 10
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
-        EXERCISE23_RESULTS: "${{steps.exercise23.outputs.result}}"
+        EXERCISE-23_RESULTS: "${{steps.exercise-23.outputs.result}}"
       with:
-        runners: exercise23
+        runners: exercise-23
